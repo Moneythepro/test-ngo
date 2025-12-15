@@ -5,48 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vidya Ghar NGO | Official Education Support Organization</title>
   <meta name="description" content="Vidya Ghar NGO provides free books to students using a refundable security deposit system. Donate books or money to support education for all." />
+
+  <!-- ===================== STYLES ===================== -->
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
       background: #eef2f6;
       color: #222;
     }
+
     header {
       background: #0b3c5d;
       color: #fff;
-      padding: 25px;
+      padding: 20px 15px;
       text-align: center;
       border-bottom: 5px solid #f4b41a;
     }
-    header h1 { margin: 0; font-size: 34px; }
-    header p { margin: 5px 0 0; }
+    header h1 { margin: 0; font-size: 28px; }
+    header p { margin: 6px 0 0; font-size: 14px; }
 
+    /* Language switch */
     .lang-switch {
-      text-align: right;
-      padding: 10px 20px;
-      background: #fff;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      padding: 10px;
+      background: #ffffff;
       border-bottom: 1px solid #ccc;
     }
     .lang-switch button {
-      padding: 6px 12px;
-      margin-left: 5px;
+      padding: 6px 14px;
       cursor: pointer;
       border: 1px solid #0b3c5d;
       background: #fff;
       color: #0b3c5d;
-      font-weight: bold;
+      font-weight: 600;
+      border-radius: 4px;
     }
 
-    .container { display: flex; min-height: 100vh; }
+    /* Layout */
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
 
     nav {
-      width: 240px;
+      width: 230px;
       background: #ffffff;
-      padding: 20px;
+      padding: 15px;
       border-right: 2px solid #ddd;
     }
-    nav h3 { margin-top: 0; color: #0b3c5d; }
+    nav h3 {
+      margin-top: 0;
+      color: #0b3c5d;
+      font-size: 18px;
+    }
     nav a {
       display: block;
       padding: 10px;
@@ -54,15 +70,21 @@
       text-decoration: none;
       color: #0b3c5d;
       font-weight: 600;
+      border-radius: 4px;
     }
-    nav a:hover { background: #e6eef4; border-radius: 4px; }
+    nav a:hover {
+      background: #e6eef4;
+    }
 
-    main { flex: 1; padding: 30px; }
+    main {
+      flex: 1;
+      padding: 20px;
+    }
 
     section {
-      background: #fff;
-      padding: 22px;
-      margin-bottom: 25px;
+      background: #ffffff;
+      padding: 18px;
+      margin-bottom: 20px;
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
@@ -71,17 +93,24 @@
       color: #0b3c5d;
       border-bottom: 2px solid #f4b41a;
       padding-bottom: 6px;
+      font-size: 20px;
     }
 
-    .donate-box { display: flex; gap: 20px; flex-wrap: wrap; }
+    /* Donate cards */
+    .donate-box {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
     .donate-card {
       flex: 1;
-      min-width: 260px;
+      min-width: 250px;
       border: 1px solid #ccc;
-      padding: 18px;
+      padding: 16px;
       border-radius: 6px;
       background: #fafafa;
     }
+    .donate-card h3 { margin-top: 0; }
     .donate-card button {
       padding: 10px 16px;
       background: #0b3c5d;
@@ -90,26 +119,42 @@
       cursor: pointer;
       font-size: 15px;
       margin-top: 10px;
+      border-radius: 4px;
+      width: 100%;
     }
 
-    .article img { max-width: 100%; border-radius: 5px; }
+    /* Articles */
+    .article img {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
 
-    form label { display: block; margin-top: 12px; font-weight: 600; }
+    /* Form */
+    form label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 600;
+      font-size: 14px;
+    }
     form input, form textarea {
       width: 100%;
       padding: 8px;
       margin-top: 4px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      font-size: 14px;
     }
     form button {
       margin-top: 15px;
-      padding: 10px 20px;
+      padding: 12px;
       background: #0b3c5d;
       color: #fff;
       border: none;
       cursor: pointer;
       font-size: 16px;
+      border-radius: 4px;
+      width: 100%;
     }
 
     footer {
@@ -120,16 +165,43 @@
       font-size: 14px;
     }
 
+    /* Language visibility */
     .hi { display: none; }
+
+    /* ===================== MOBILE ===================== */
+    @media (max-width: 768px) {
+      .container { flex-direction: column; }
+      nav {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #ddd;
+      }
+      nav a { display: inline-block; margin: 4px 4px; }
+    }
   </style>
 
+  <!-- ===================== SCRIPT ===================== -->
   <script>
     function switchLang(lang) {
-      document.querySelectorAll('.en').forEach(e => e.style.display = (lang==='en')?'block':'none');
-      document.querySelectorAll('.hi').forEach(e => e.style.display = (lang==='hi')?'block':'none');
+      document.querySelectorAll('.en').forEach(e => e.style.display = (lang === 'en') ? 'block' : 'none');
+      document.querySelectorAll('.hi').forEach(e => e.style.display = (lang === 'hi') ? 'block' : 'none');
+    }
+
+    function donateMoney() {
+      alert('DEMO PAYMENT SUCCESSFUL!\n\nThank you for supporting Vidya Ghar NGO.\n(Transaction ID: DEMO' + Math.floor(Math.random()*100000) + ')');
+    }
+
+    function donateBooks() {
+      alert('Book Donation Request Received!\n\nOur team will contact you shortly for book collection.');
+    }
+
+    function submitContact() {
+      alert('Message Sent Successfully!\n\nThank you for contacting Vidya Ghar NGO. We will reply soon.');
+      document.getElementById('contactForm').reset();
     }
   </script>
 </head>
+
 <body onload="switchLang('en')">
 
 <header>
@@ -138,17 +210,17 @@
 </header>
 
 <div class="lang-switch">
-  Language:
   <button onclick="switchLang('en')">English</button>
   <button onclick="switchLang('hi')">हिन्दी</button>
 </div>
 
 <div class="container">
+
   <nav>
     <h3>Menu</h3>
     <a href="#about">About Us</a>
     <a href="#purpose">Our Purpose</a>
-    <a href="#system">Book Lending System</a>
+    <a href="#system">Book Lending</a>
     <a href="#donate">Donate</a>
     <a href="#articles">Articles</a>
     <a href="#contact">Contact</a>
@@ -159,74 +231,76 @@
 
     <section id="about">
       <h2>About Us</h2>
-      <p class="en">Vidya Ghar is a non-profit NGO focused on providing free access to books and learning resources for students and learners from all backgrounds.</p>
-      <p class="hi">विद्या घर एक गैर-लाभकारी संस्था है जो छात्रों को निःशुल्क पुस्तकें और शिक्षा संसाधन उपलब्ध कराती है।</p>
+      <p class="en">Vidya Ghar is a registered non-profit organization working to ensure that every student has access to books and learning materials regardless of financial background.</p>
+      <p class="hi">विद्या घर एक पंजीकृत गैर-लाभकारी संस्था है जो यह सुनिश्चित करती है कि हर छात्र को पुस्तकें और शिक्षा संसाधन उपलब्ध हों।</p>
     </section>
 
     <section id="purpose">
       <h2>Our Purpose</h2>
       <ul class="en">
-        <li>Promote education through book access</li>
-        <li>Support underprivileged students</li>
-        <li>Encourage book reuse</li>
+        <li>Provide free access to educational books</li>
+        <li>Reduce financial burden on students</li>
+        <li>Promote reading culture</li>
+        <li>Reuse books for sustainable education</li>
       </ul>
       <ul class="hi">
-        <li>शिक्षा को बढ़ावा देना</li>
-        <li>आर्थिक रूप से कमजोर छात्रों की सहायता</li>
+        <li>निःशुल्क शिक्षा सामग्री प्रदान करना</li>
+        <li>छात्रों पर आर्थिक बोझ कम करना</li>
+        <li>पठन संस्कृति को बढ़ावा देना</li>
         <li>पुस्तकों का पुनः उपयोग</li>
       </ul>
     </section>
 
     <section id="system">
       <h2>Book Lending System</h2>
-      <p class="en">Books are provided for a limited time. A refundable security deposit (usually 40–50% of book value) is collected and fully returned after safe book return.</p>
-      <p class="hi">पुस्तकें सीमित समय के लिए दी जाती हैं। पुस्तक मूल्य का 40–50% सुरक्षा राशि ली जाती है जो पुस्तक वापस करने पर लौटा दी जाती है।</p>
+      <p class="en">Students can borrow books for a fixed duration by paying a small refundable security deposit (40–50% of book value). After returning the books in good condition, the full amount is refunded.</p>
+      <p class="hi">छात्र सीमित समय के लिए पुस्तकें उधार ले सकते हैं। पुस्तक मूल्य का 40–50% सुरक्षा शुल्क लिया जाता है जो पुस्तक लौटाने पर वापस किया जाता है।</p>
     </section>
 
     <section id="donate">
-      <h2>Donate</h2>
+      <h2>Donate & Support</h2>
       <div class="donate-box">
         <div class="donate-card">
           <h3>📚 Donate Books</h3>
-          <p class="en">Donate used or new educational books.</p>
+          <p class="en">Donate new or used educational books to help students.</p>
           <p class="hi">नई या पुरानी शैक्षणिक पुस्तकें दान करें।</p>
-          <button>Contact for Book Donation</button>
+          <button onclick="donateBooks()">Donate Books</button>
         </div>
         <div class="donate-card">
           <h3>💰 Donate Money</h3>
-          <p class="en">Support us financially (Demo Button).</p>
-          <p class="hi">आर्थिक सहायता करें (डेमो बटन)।</p>
-          <button>Donate via UPI (Demo)</button>
+          <p class="en">Support our mission through financial contributions.</p>
+          <p class="hi">आर्थिक सहायता देकर हमारा सहयोग करें।</p>
+          <button onclick="donateMoney()">Donate via UPI (Demo)</button>
         </div>
       </div>
     </section>
 
     <section id="articles">
-      <h2>Articles</h2>
+      <h2>Articles & Updates</h2>
       <div class="article">
-        <img src="article-image-1.jpg" alt="Students reading">
+        <img src="article-image-1.jpg" alt="Students studying">
         <h3>Education Changes Lives</h3>
-        <p><strong>Written by:</strong> Vidya Ghar Team</p>
-        <p>Through book sharing, we help students continue their education without financial burden.</p>
+        <p><strong>Written by:</strong> Vidya Ghar Editorial Team</p>
+        <p>Through our book lending and donation system, hundreds of students continue their education without interruption.</p>
       </div>
     </section>
 
     <section id="contact">
       <h2>Contact Us</h2>
-      <form>
+      <form id="contactForm" onsubmit="event.preventDefault(); submitContact();">
         <label>Name</label>
-        <input type="text" placeholder="Your Name" />
+        <input type="text" required placeholder="Your Name" />
         <label>Email</label>
-        <input type="email" placeholder="Your Email" />
+        <input type="email" required placeholder="Your Email" />
         <label>Message</label>
-        <textarea rows="4" placeholder="Your Message"></textarea>
-        <button type="button">Send Message (Demo)</button>
+        <textarea rows="4" required placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
       </form>
     </section>
 
     <section id="location">
       <h2>Our Location</h2>
-      <p>City, State, India</p>
+      <p>Vidya Ghar NGO<br>City, State, India</p>
     </section>
 
   </main>
